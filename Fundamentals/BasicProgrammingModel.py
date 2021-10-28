@@ -94,3 +94,31 @@ print("#1.1.9")
 #https://docs.python.org/3/reference/lexical_analysis.html#f-strings
 n = 30
 print(f'0b{n:08b}')
+
+print("")
+print("#1.1.10")
+print("Java not instantiating a new array")
+
+print("")
+print("#1.1.11")
+T = [[11, 12, 5, 2], [15, 6,10], [10, 8, 12, 5], [12,15,8,6]]
+cols = len(max(T, key=len))
+i = -1
+while i < cols:
+    if i == -1:
+        print(" ",end="\t")
+    else:
+        print("c",i,end="\t")
+    i+=1
+print()
+
+i = 1
+for r in T:    
+    print("r",i,end="\t")
+    i+=1
+    for c in r:
+        print(c,end="\t")
+    print()
+
+print("")
+print("#1.1.12")
