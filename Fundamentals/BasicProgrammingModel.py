@@ -1,5 +1,6 @@
 import random
 import math
+from math import log2
 
 #create an n-length array of integers between 0 and 100
 def create_array(n):
@@ -122,3 +123,35 @@ for r in T:
 
 print("")
 print("#1.1.12")
+a = [10]
+i = 0
+while i < 10:
+    #a[i] = 9 - i 
+    #this will break in Python, but doesn't matter for the exercise.
+    i+=1
+j = 0
+while j < 10:
+    #a[j] = a[a[j]]
+    #same as above
+    j+=1
+k = 0
+while k < 10:
+    print(k) #hah. good one    
+    k+=1
+
+print("")
+print("#1.1.13")
+print(T)
+z = zip(*T)
+for row in z:
+    print(row)
+#todo: loses third because null in [1] - feex it
+
+print("")
+print("#1.1.14")
+
+def lg(N):
+    return int(log2(N))
+    #todo: handle negatives, do not use math
+print(lg(40))
+
