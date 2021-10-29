@@ -155,3 +155,51 @@ def lg(N):
     #todo: handle negatives, do not use math
 print(lg(40))
 
+print("")
+print("#1.1.15")
+A = [2,4,8,8,1,7,2,4,5]
+def histogram(M,a):
+    i = 0; arr = []
+    while i < M:
+        arr.append(a.count(i))
+        i+=1
+    return arr
+
+print(histogram(10,A))
+
+print("")
+print("#1.1.16") #recursive methods
+def exR1(n):
+    if n<=0:
+        return ""
+    return str(exR1(n-3)) + str(n) + str(exR1(n-2)) + str(n)
+
+print(exR1(6))
+
+print("")
+print("#1.1.17") 
+#the return should be higher in the condition. this would overflow
+
+print("")
+print("#1.1.18") 
+
+def mystery(a, b):
+    if b==0: return 0;
+    if b % 2 == 0: return mystery(a+a, int(b/2));
+    return mystery(a+a, int(b/2)) +a;
+
+def f(a, b):
+    print("a+a: ", str(a+a),end='')
+    print("b/2: ", str(int(b/2)),end='')
+
+#f(2,25)
+print(mystery(3,11))
+#mystery multiplies the first parameter by the second
+
+def mystery2(a, b):
+    if b==0: return 1;
+    if b % 2 == 0: return mystery(a*a, int(b/2));
+    return mystery(a*a, int(b/2)) +a;
+
+print(mystery2(1,3))
+
