@@ -203,3 +203,10 @@ def mystery2(a, b):
 
 print(mystery2(1,3))
 
+print("")
+print("#1.1.21") 
+def ex1121(name, a, b):
+    print(name,a, b, format(a/b, ".3f"), end="\t")
+
+ex1121("sample",11,3)
+
