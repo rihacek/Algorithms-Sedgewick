@@ -210,3 +210,52 @@ def ex1121(name, a, b):
 
 ex1121("sample",11,3)
 
+print("")
+print("")
+print("#1.1.22") 
+# public static int rank(int key, int[] a)
+# { return rank(key, a, 0, a.length - 1); }
+#
+# public static int rank(int key, int[] a, int lo, int hi)
+# { // Index of key in a[], if present, is not smaller than lo
+#   // and not larger than hi.
+#   if (lo > hi) return -1;
+#   int mid = lo + (hi - lo) / 2;
+#   if (key < a[mid]) return rank(key, a, lo, mid - 1);
+#   else if (key > a[mid]) return rank(key, a, mid + 1, hi);
+#   else return mid;
+# }
+
+def b_search(a, lo, hi, x):
+    if hi >= lo:
+        mid = (hi + lo) // 2
+
+        #did we find it at mid?
+        if a[mid] == x:
+            return mid
+
+        #if smaller than mid, look at left side of array
+        elif a[mid] > x:
+            return b_search(a, lo, mid - 1, x)
+
+        #otherwise, it's in the right side
+        else: 
+            return b_search(a, mid+1, hi, x)
+
+    else:
+        #element not present
+        return -1
+
+# Test array - takes for granted that values are sorted.  
+# Java uses rank(), but didn't see for Python so skipped it
+arr = [ 12, 23, 34, 48, 140, 142, 145, 160 ]
+x = 142
+
+# Function call
+result = b_search(arr, 0, len(arr)-1, x)
+if result != -1:
+    print("Element is present at index", str(result))
+else:
+    print("Element is not present in array")
+
+#todo: carry on with the exercise - return lo/hi as well as depth
