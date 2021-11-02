@@ -226,9 +226,14 @@ print("#1.1.22")
 #   else return mid;
 # }
 
-def b_search(a, lo, hi, x):
+def b_search(a, lo, hi, x, lvl):
     if hi >= lo:
         mid = (hi + lo) // 2
+        
+        print ("\t" * lvl,end=" ")
+        print(lo, hi, end="\t")
+        print("")
+        lvl +=1
 
         #did we find it at mid?
         if a[mid] == x:
@@ -236,11 +241,11 @@ def b_search(a, lo, hi, x):
 
         #if smaller than mid, look at left side of array
         elif a[mid] > x:
-            return b_search(a, lo, mid - 1, x)
+            return b_search(a, lo, mid - 1, x, lvl)
 
         #otherwise, it's in the right side
         else: 
-            return b_search(a, mid+1, hi, x)
+            return b_search(a, mid+1, hi, x, lvl)
 
     else:
         #element not present
@@ -252,10 +257,50 @@ arr = [ 12, 23, 34, 48, 140, 142, 145, 160 ]
 x = 142
 
 # Function call
-result = b_search(arr, 0, len(arr)-1, x)
+result = b_search(arr, 0, len(arr)-1, x, 0)
 if result != -1:
     print("Element is present at index", str(result))
 else:
     print("Element is not present in array")
 
-#todo: carry on with the exercise - return lo/hi as well as depth
+
+print("")
+print("#1.1.23") 
+def b_search2(a, lo, hi, x, sign=None):
+    if sign == "+":
+        #return numbers in the whitelist
+        do_something = 1
+    elif sign == "-":
+        #return numbers NOT in the whitelist
+        do_something = 2
+
+
+    if hi >= lo:
+        mid = (hi + lo) // 2
+
+        if a[mid] == x:
+            return mid
+        elif a[mid] > x:
+            return b_search2(a, lo, mid - 1, x)
+        else: 
+            return b_search2(a, mid+1, hi, x)
+    else:
+        return -1
+
+print("")
+print("#1.1.24") 
+def euclid (p, q):
+    
+    print(str(p), str(q),end="\t")
+    print("")
+
+    if q==0:
+        return p
+    r = p % q
+    return euclid(q, r)
+
+print ("gcd: ", str(euclid(1111111,1234567)), end=" ")
+print ("")
+
+print("")
+print("#1.1.25") 
